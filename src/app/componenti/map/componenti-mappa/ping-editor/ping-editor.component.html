@@ -1,0 +1,37 @@
+<div class="pagina">
+    <p>Lista Utenti</p>
+    <div class="tabella">
+      <table>
+        <thead>
+          <tr>
+            <th class="tab-head">ID</th>
+            <th class="tab-head-description">Descrizione</th>
+            <th class="tab-head">Latitudine</th>
+            <th class="tab-head">Longitudine</th>
+            <th class="tab-head">Id_Ping_Type</th>
+            <th class="tab-head">Data_Creazione</th>
+            <th class="tab-head">Delete</th>
+            <th class="tab-head">Modifica</th>
+          </tr>
+        </thead>
+        <tbody >
+          <tr *ngFor="let item of displayedItems index as i " >
+            <td class="tab-body" >{{ item.id_ping }}</td>
+            <td class="tab-body-description">{{ item.descrizione }}</td>
+            <td class="tab-body">{{ item.latitudine }}</td>
+            <td class="tab-body">{{ item.longitudine }}</td>
+            <td class="tab-body">{{ item.idPingType }}</td>
+            <td class="tab-body">{{ item.dataCreazione }}</td>
+            <td  ><img  style="width: 30px; height: 30px;" (click)="eliminaRiga(item.id_ping)" [src]="src"></td>
+            <td  ><img style="width: 30px; height: 30px;"  [src]="src2"></td>
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="pagination">
+      <button class="a" (click)="previousPage()" [disabled]="currentPage === 1">Prev</button>
+      <span>Page {{ currentPage }} of {{ totalPages }}</span>
+      <button class="a" (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+    </div>
+  </div>
